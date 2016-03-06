@@ -18,7 +18,7 @@ args.forEach(function(pathname) {
 });
 Q.allSettled(qList).then(function(results) {
   results.forEach(function(result) {
-    if (result.state == 'rejected') {
+    if (result.state == 'rejected' && result.reason != "Already in the correct format") {
       console.error(result.reason);
     }
   });
